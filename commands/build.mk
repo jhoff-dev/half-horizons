@@ -1,7 +1,13 @@
 # Install the project and set up Docker services
 install:
+	make permissions
 	make create-ssl
+	sh -c 'cd web/app/themes && git clone -b develop git@github.com:jhoff-dev/half-horizons.git'
 	${DOCKER_COMPOSE} up -d
+	make composer update
+	make yarn upgrade
+	make clear
+	make permissions
 
 # Start the Docker services
 up:
