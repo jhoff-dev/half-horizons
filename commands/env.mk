@@ -1,3 +1,7 @@
+# Necessary to avoid errors in commands with parameters.
+%:
+	@:
+
 include .env
 
 export UID=$(shell id -u)
