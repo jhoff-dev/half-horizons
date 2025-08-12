@@ -1,12 +1,5 @@
 # Application
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
-web/app/themes/twentytwentyfive/
-web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
-web/app/cache/*
+web/app/*
 
 # Config
 config/server/nginx/certs/*
@@ -15,6 +8,7 @@ config/server/nginx/certs/*
 # WordPress
 web/wp
 web/.htaccess
+web/nginx.conf
 
 # Logs
 *.log
