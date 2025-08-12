@@ -1,3 +1,7 @@
+install:
+	make create-ssl
+	${DOCKER_COMPOSE} up -d
+
 # Start the Docker services
 up:
 	${DOCKER_COMPOSE} up -d
