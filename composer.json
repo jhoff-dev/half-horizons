@@ -1,27 +1,20 @@
 {
-  "name": "roots/bedrock",
+  "name": "jhoff-dev/half-horizons",
   "type": "project",
   "license": "MIT",
-  "description": "WordPress boilerplate with Composer, easier configuration, and an improved folder structure",
-  "homepage": "https://roots.io/bedrock/",
+  "description": "WordPress theme dedicated to the Randonneurs community and lifestyle, focusing on performance, customization, and modern integration.",
   "authors": [
     {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
+      "name": "José Hoff",
+      "email": "dev.jhoff@gmail.com",
+      "homepage": "https://github.com/jhoff-dev"
     }
   ],
   "keywords": [
     "bedrock", "composer", "roots", "wordpress", "wp", "wp-config"
   ],
   "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
+    "issues": "https://github.com/jhoff-dev/half-horizons/issues"
   },
   "repositories": [
     {
