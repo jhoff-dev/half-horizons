@@ -1,0 +1,115 @@
+x-app-volumes:
+  &app-volumes
+    volumes:
+      - ./web:/web
+    working_dir: /web/app/themes/half-horizons
+
+x-server-settings:
+  &server-settings
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+    volumes:
+      - ./:/var/www
+      - ./config/server/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+      - ./config/server/php/conf.d/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./config/server/nginx/certs:/etc/nginx/certs
+
+services:
+  database:
+    container_name: hrs_database
+    restart: no
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+     - database:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "${DB_USER}", "--password=${DB_PASSWORD}"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  server:
+    container_name: hrs_server
+    restart: no
+    image: php:8.4-fpm
+    <<: *server-settings
+    command: sh -c "docker-php-ext-install pdo pdo_mysql mysqli && php-fpm"
+    healthcheck:
+      test: ["CMD", "php-fpm", "-t"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  nginx:
+    container_name: hrs_nginx
+    restart: no
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    <<: *server-settings
+    depends_on:
+      server:
+        condition: service_healthy
+
+  wp-cli:
+    user: "${UID}:${GID}"
+    container_name: hrs_wp-cli
+    restart: no
+    image: wordpress:cli-php8.4
+    <<: *server-settings
+    depends_on:
+      database:
+        condition: service_healthy
+      server:
+        condition: service_healthy
+    command: tail -f /dev/null
+
+  composer:
+    user: "${UID}:${GID}"
+    container_name: hrs_composer
+    restart: no
+    image: composer:latest
+    <<: *app-volumes
+    command: tail -f /dev/null
+
+  node:
+    user: "${UID}:${GID}"
+    container_name: hrs_node
+    restart: no
+    image: node:latest
+    <<: *app-volumes
+    command: sh -c 'tail -f /dev/null'
+
+  phpmyadmin:
+    container_name: hrs_phpmyadmin
+    restart: no
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: ${DB_HOST}
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8080:80"
+    depends_on:
+      database:
+        condition: service_healthy
+
+networks:
+  default:
+    name: hrs_network
+    driver: bridge
+
+volumes:
+  database:
+    name: hrs_database
