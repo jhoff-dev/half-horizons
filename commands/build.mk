@@ -1,3 +1,4 @@
+# Install the project and set up Docker services
 install:
 	make create-ssl
 	${DOCKER_COMPOSE} up -d
