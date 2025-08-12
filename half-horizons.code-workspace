@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "name": "Project",
+      "path": "."
+    },
+    {
+      "name": "Plugins",
+      "path": "./web/app/plugins"
+    },
+    {
+      "name": "Theme",
+      "path": "./web/app/themes/half-horizons"
+    },
+  ],
+  "settings": {
+    "files.associations": {
+      "*.module": "php",
+    },
+    "workbench.editorAssociations": {},
+  },
+  "extensions": {
+    "recommendations": []
+  }
+}
