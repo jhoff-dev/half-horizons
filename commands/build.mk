@@ -8,6 +8,7 @@ init:
 	make composer install
 	make yarn install
 	make yarn build
+	sh -c 'cd web/app/themes/half-horizons && git config core.fileMode false'
 
 # Start the Docker services
 up:
