@@ -8,6 +8,10 @@ web/app/uploads/*
 !web/app/uploads/.gitkeep
 web/app/cache/*
 
+# Config
+config/server/nginx/certs/*
+!config/server/nginx/certs/.gitkeep
+
 # WordPress
 web/wp
 web/.htaccess
