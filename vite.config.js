@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite';
-import laravel from 'laravel-vite-plugin'
 import { wordpressPlugin, wordpressThemeJson } from '@roots/vite-plugin';
+import tailwindcss from '@tailwindcss/vite';
+import laravel from 'laravel-vite-plugin';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/app/themes/sage/public/build/',
+  base: '/app/themes/half-horizons/public/build/',
   plugins: [
     tailwindcss(),
     laravel({

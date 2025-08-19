@@ -1,9 +1,19 @@
 {
-  "name": "sage",
+  "name": "@jhoff-dev/half-horizons",
+  "description": "Half Horizons is a WordPress theme dedicated to the Randonneurs community.",
   "private": true,
+  "version": "1.0.0",
+  "license": "GPL-3.0 OR later",
+  "keywords": [
+    "wordpress",
+    "sage",
+    "randonneur",
+    "cycling"
+  ],
   "engines": {
     "node": ">=20.0.0"
   },
+  "packageManager": "yarn@4.9.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
