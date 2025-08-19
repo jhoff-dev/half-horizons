@@ -5,3 +5,5 @@
 .env
 npm-debug.log
 *.lock
+theme.json
+/.yarn
