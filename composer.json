@@ -1,37 +1,26 @@
 {
-  "name": "roots/sage",
+  "name": "jhoff-dev/half-horizons",
+  "description": "Half Horizons is a WordPress theme dedicated to the Randonneurs community.",
+  "private": true,
+  "version": "1.0.0",
+  "license": "GPL-3.0 OR later",
   "type": "wordpress-theme",
-  "license": "MIT",
-  "description": "WordPress starter theme with a modern development workflow",
-  "homepage": "https://roots.io/sage/",
+  "homepage": "https://github.com/jhoff-dev/half-horizons",
   "authors": [
     {
-      "name": "Ben Word",
-      "email": "ben@benword.com",
-      "homepage": "https://github.com/retlehs"
-    },
-    {
-      "name": "Scott Walkinshaw",
-      "email": "scott.walkinshaw@gmail.com",
-      "homepage": "https://github.com/swalkinshaw"
-    },
-    {
-      "name": "QWp6t",
-      "email": "hi@qwp6t.me",
-      "homepage": "https://github.com/qwp6t"
-    },
-    {
-      "name": "Brandon Nifong",
-      "email": "brandon@tendency.me",
-      "homepage": "https://github.com/log1x"
+      "name": "José Hoff",
+      "email": "dev.jhoff@gmail.com",
+      "homepage": "https://github.com/jhoff-dev"
     }
   ],
   "keywords": [
-    "wordpress"
+    "wordpress",
+    "sage",
+    "randonneur",
+    "cycling"
   ],
   "support": {
-    "issues": "https://github.com/roots/sage/issues",
-    "forum": "https://discourse.roots.io/"
+    "issues": "https://github.com/jhoff-dev/half-horizons/issues"
   },
   "autoload": {
     "psr-4": {
@@ -40,14 +29,16 @@
   },
   "require": {
     "php": ">=8.2",
-    "roots/acorn": "^5.0"
+    "roots/acorn": "5.0.5",
+    "log1x/sage-directives": "2.0.6",
+    "log1x/poet": "2.1.0",
+    "log1x/acf-composer": "3.4.4",
+    "log1x/sage-svg": "2.0.2"
   },
   "require-dev": {
-    "laravel/pint": "^1.20"
+    "laravel/pint": "1.24.0"
   },
-  "suggest": {
-    "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0)."
-  },
+  "suggest": {},
   "config": {
     "optimize-autoloader": true,
     "preferred-install": "dist",
@@ -58,6 +49,12 @@
   "scripts": {
     "post-autoload-dump": [
       "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+    ],
+    "lint": [
+      "./vendor/bin/pint --test"
+    ],
+    "lint:fix": [
+      "./vendor/bin/pint"
     ]
   }
 }

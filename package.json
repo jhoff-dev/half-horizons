@@ -1,13 +1,25 @@
 {
-  "name": "sage",
+  "name": "@jhoff-dev/half-horizons",
+  "description": "Half Horizons is a WordPress theme dedicated to the Randonneurs community.",
   "private": true,
+  "version": "1.0.0",
+  "license": "GPL-3.0 OR later",
+  "keywords": [
+    "wordpress",
+    "sage",
+    "randonneur",
+    "cycling"
+  ],
   "engines": {
     "node": ">=20.0.0"
   },
+  "packageManager": "yarn@4.9.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "prettier 'resources/{css,js,views}/**/*.{css,js,blade.php}' --check ; stylelint 'resources/css/**/*.css' ; eslint 'resources/js/**/*.js'",
+    "lint:fix": "prettier --write 'resources/{css,js,views}/**/*.{css,js,blade.php}' ; stylelint 'resources/css/**/*.css' --fix ; eslint 'resources/js/**/*.js' --fix",
     "translate": "npm run translate:pot && npm run translate:update",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"theme.json,patterns,app,resources\"",
     "translate:update": "for file in ./resources/lang/*.po; do wp i18n update-po ./resources/lang/sage.pot $file; done",
@@ -16,10 +28,19 @@
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/vite-plugin": "^1.0.2",
-    "@tailwindcss/vite": "^4.0.9",
-    "laravel-vite-plugin": "^1.2.0",
-    "tailwindcss": "^4.0.9",
-    "vite": "^6.2.0"
+    "@eslint/js": "^9.33.0",
+    "@roots/vite-plugin": "^1.1.0",
+    "@tailwindcss/vite": "^4.1.12",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "laravel-vite-plugin": "^2.0.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-blade": "^2.1.21",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-tailwindcss": "1.0.0",
+    "tailwindcss": "^4.1.12",
+    "vite": "^7.1.3"
   }
 }
