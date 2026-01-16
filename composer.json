@@ -25,21 +25,21 @@
   ],
   "require": {
     "php": ">=8.1",
-    "composer/installers": "^2.2",
-    "vlucas/phpdotenv": "^5.5",
+    "composer/installers": "^2.3",
+    "vlucas/phpdotenv": "^5.6",
     "oscarotero/env": "^2.1",
     "roots/bedrock-autoloader": "^1.0",
     "roots/bedrock-disallow-indexing": "^2.0",
-    "roots/wordpress": "6.8.2",
+    "roots/wordpress": "6.9",
     "roots/wp-config": "1.0.0",
     "wpackagist-theme/twentytwentyfive": "^1.0",
-    "wpackagist-plugin/w3-total-cache": "2.8.11",
-    "wpackagist-plugin/ewww-image-optimizer": "8.2.0",
-    "wpackagist-plugin/advanced-custom-fields": "6.5.0"
+    "wpackagist-plugin/w3-total-cache": "2.9.1",
+    "wpackagist-plugin/ewww-image-optimizer": "8.3.1",
+    "wpackagist-plugin/advanced-custom-fields": "6.7.0"
   },
   "require-dev": {
     "roave/security-advisories": "dev-latest",
-    "laravel/pint": "^1.18"
+    "laravel/pint": "^1.27"
   },
   "config": {
     "optimize-autoloader": true,
